@@ -45,18 +45,13 @@ class CourseAdapter(private val onItemClick: (Course) -> Unit) : ListAdapter<Cou
                     .load(item.image_url)
                     .into(icon)
             if (item.selected) {
-                check.visibility = VISIBLE
                 if (item.percents == 100) {
-                    Picasso.get()
-                            .load(R.drawable.ic_check_circle)
-                            .into(check)
+                    check.setImageResource(R.drawable.ic_check_circle)
                 } else {
-                    Picasso.get()
-                            .load(R.drawable.ic_timer_clock)
-                            .into(check)
+                    check.setImageResource(R.drawable.ic_timer_clock)
                 }
             } else {
-                check.visibility = GONE
+                icon.setImageResource(R.color.white)
             }
         }
     }

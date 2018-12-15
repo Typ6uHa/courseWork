@@ -56,7 +56,7 @@ class ProfileActivity : BaseActivity(), ProfileView {
         startActivity(intentFor<LoginActivity>().clearTask().newTask())
     }
 
-    override fun showSkillScreen(name: String, todos: List<Todo>) {
-        startActivity(intentFor<TodoActivity>("name" to name, "todos" to todos))
+    override fun showSkillScreen(name: String, todos: List<Todo>, idCourse: Int) {
+        startActivity(intentFor<TodoActivity>("name" to name, "todos" to todos, "id" to idCourse))
     }
 }

@@ -8,7 +8,7 @@ import io.reactivex.rxkotlin.plusAssign
 import one.stride.telegramstories.ui.base.BasePresenter
 
 @InjectViewState
-class TodoPresenter(val name : String, private val todos: List<Todo>) : BasePresenter<TodoView>() {
+class TodoPresenter(val name: String, private val todos: List<Todo>, private val idCourse: Int) : BasePresenter<TodoView>() {
 
     private val studentRepository = StudentRepositoryProvider.instance
 
@@ -20,7 +20,7 @@ class TodoPresenter(val name : String, private val todos: List<Todo>) : BasePres
 
     fun onCheckBoxClick(id: Int, checked: Boolean) {
         disposable += studentRepository
-                .selectTodo(id, checked)
+                .selectTodo(id, checked,idCourse)
                 .addSchedulers()
                 .subscribe()
     }

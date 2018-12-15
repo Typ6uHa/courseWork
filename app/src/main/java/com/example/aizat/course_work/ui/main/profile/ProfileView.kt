@@ -11,7 +11,7 @@ interface ProfileView : BaseView {
     fun submitList(list: List<Course>)
 
     @StateStrategyType(OneExecutionStateStrategy::class)
-    fun showSkillScreen(name: String, todos: List<Todo>)
+    fun showSkillScreen(name: String, todos: List<Todo>, idCourse: Int)
 
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun showLoginScreen()

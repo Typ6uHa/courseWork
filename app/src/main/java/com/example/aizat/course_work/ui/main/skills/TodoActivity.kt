@@ -20,12 +20,13 @@ class TodoActivity : BaseActivity(), TodoView {
     fun providePresenter(): TodoPresenter {
         return TodoPresenter(
                 intent.getSerializableExtra("name") as String,
-                intent.getSerializableExtra("todos") as List<Todo>
+                intent.getSerializableExtra("todos") as List<Todo>,
+                intent.getIntExtra("id", -1)
         )
     }
 
-    private val adapter : TodoAdapter = TodoAdapter{ id, checked ->
-        presenter.onCheckBoxClick(id,checked)
+    private val adapter: TodoAdapter = TodoAdapter { id, checked ->
+        presenter.onCheckBoxClick(id, checked)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

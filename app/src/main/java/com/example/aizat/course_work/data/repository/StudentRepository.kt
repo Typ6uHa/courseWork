@@ -4,7 +4,9 @@ import com.example.aizat.course_work.data.model.AuthResponse
 import com.example.aizat.course_work.data.model.Blocks
 import com.example.aizat.course_work.data.model.Course
 import com.example.aizat.course_work.data.model.Spell
+import com.example.aizat.course_work.data.repository.model.SpellUpdate
 import io.reactivex.Completable
+import io.reactivex.Observable
 import io.reactivex.Single
 
 interface StudentRepository {
@@ -21,5 +23,7 @@ interface StudentRepository {
 
     fun selectCourse(id: Int, selected: Boolean): Completable
 
-    fun selectTodo(id: Int, selected: Boolean): Completable
+    fun selectTodo(id: Int, selected: Boolean, idCourse: Int): Completable
+
+    fun getTodoUpdate(): Observable<SpellUpdate>
 }
