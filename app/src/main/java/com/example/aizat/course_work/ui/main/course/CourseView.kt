@@ -14,4 +14,5 @@ interface CourseView : BaseView {
 
     fun showAcceptPopUp(course: Course)
     fun showLearnedSpellScreen()
+    fun showTodoScreen(course: Course)
 }

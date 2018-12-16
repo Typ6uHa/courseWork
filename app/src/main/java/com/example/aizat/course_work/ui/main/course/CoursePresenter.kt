@@ -47,4 +47,8 @@ class CoursePresenter : BasePresenter<CourseView>() {
     fun onSkillClick() {
        viewState.showLearnedSpellScreen()
     }
+
+    fun onSelectedItemClick(course: Course) {
+        viewState.showTodoScreen(course)
+    }
 }

@@ -2,14 +2,18 @@ package com.example.aizat.course_work.ui.main.skills
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.Menu
+import android.view.MenuItem
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.aizat.course_work.R
 import com.example.aizat.course_work.data.model.Course
 import com.example.aizat.course_work.data.model.Todo
 import com.example.aizat.course_work.ui.base.BaseActivity
+import com.example.aizat.course_work.ui.main.profile.ProfileActivity
 import kotlinx.android.synthetic.main.activity_course.*
 import kotlinx.android.synthetic.main.toolbar.*
+import org.jetbrains.anko.startActivity
 
 class TodoActivity : BaseActivity(), TodoView {
 
@@ -24,15 +28,14 @@ class TodoActivity : BaseActivity(), TodoView {
         )
     }
 
-    private val adapter : TodoAdapter = TodoAdapter{ id, checked ->
-        presenter.onCheckBoxClick(id,checked)
+    private val adapter: TodoAdapter = TodoAdapter { id, checked ->
+        presenter.onCheckBoxClick(id, checked)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_skill)
         setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val layoutManager = LinearLayoutManager(this)
 
@@ -46,5 +49,10 @@ class TodoActivity : BaseActivity(), TodoView {
 
     override fun submitList(list: List<Todo>) {
         adapter.submitList(list)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        startActivity<ProfileActivity>()
     }
 }

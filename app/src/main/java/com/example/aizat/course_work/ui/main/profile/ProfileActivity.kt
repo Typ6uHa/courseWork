@@ -11,6 +11,7 @@ import com.example.aizat.course_work.data.model.Todo
 import com.example.aizat.course_work.ui.auth.login.LoginActivity
 import com.example.aizat.course_work.ui.base.BaseActivity
 import com.example.aizat.course_work.ui.main.CourseAdapter
+import com.example.aizat.course_work.ui.main.course.CourseActivity
 import com.example.aizat.course_work.ui.main.skills.TodoActivity
 import kotlinx.android.synthetic.main.activity_course.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -21,15 +22,14 @@ class ProfileActivity : BaseActivity(), ProfileView {
     @InjectPresenter
     lateinit var presenter: ProfilePresenter
 
-    private val adapter: CourseAdapter = CourseAdapter {
+    private val adapter: CourseAdapter = CourseAdapter({
         presenter.onCourseClick(it)
-    }
+    }, {})
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
         setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val layoutManager = LinearLayoutManager(this)
 
         recyclerView.layoutManager = layoutManager
@@ -57,6 +57,12 @@ class ProfileActivity : BaseActivity(), ProfileView {
     }
 
     override fun showSkillScreen(name: String, todos: List<Todo>) {
+        finish()
         startActivity(intentFor<TodoActivity>("name" to name, "todos" to todos))
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        startActivity<CourseActivity>()
     }
 }

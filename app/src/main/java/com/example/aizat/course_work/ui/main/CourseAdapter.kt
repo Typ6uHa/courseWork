@@ -14,13 +14,17 @@ import com.example.aizat.course_work.R
 import com.example.aizat.course_work.data.model.Course
 import com.squareup.picasso.Picasso
 
-class CourseAdapter(private val onItemClick: (Course) -> Unit) : ListAdapter<Course, CourseAdapter.ViewHolder>(DIFF_CALLBACK) {
+class CourseAdapter(private val onNotSelectedItemClick: (Course) -> Unit, private val onSelectedItemClick:(Course) -> Unit) : ListAdapter<Course, CourseAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val holder = ViewHolder(inflater.inflate(R.layout.item_course, parent, false))
         holder.itemView.setOnClickListener {
-            onItemClick(getItem(holder.adapterPosition))
+            if(getItem(holder.adapterPosition).selected) {
+                onNotSelectedItemClick(getItem(holder.adapterPosition))
+            } else {
+                onSelectedItemClick(getItem(holder.adapterPosition))
+            }
         }
         return holder
     }
