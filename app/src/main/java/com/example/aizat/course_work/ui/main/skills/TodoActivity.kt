@@ -2,12 +2,9 @@ package com.example.aizat.course_work.ui.main.skills
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.view.Menu
-import android.view.MenuItem
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.aizat.course_work.R
-import com.example.aizat.course_work.data.model.Course
 import com.example.aizat.course_work.data.model.Todo
 import com.example.aizat.course_work.ui.base.BaseActivity
 import com.example.aizat.course_work.ui.main.profile.ProfileActivity

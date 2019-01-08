@@ -84,6 +84,6 @@ class CourseActivity : BaseActivity(), CourseView {
 
     override fun showTodoScreen(course: Course) {
         finish()
-        startActivity(intentFor<TodoActivity>("name" to (course as CourseItem), "todos" to course.todos))
+        startActivity(intentFor<TodoActivity>("name" to (course as CourseItem).name, "todos" to course.todos))
     }
 }

@@ -18,7 +18,9 @@ class SpellPresenter : BasePresenter<SpellView>() {
                 .getLearningSpells()
                 .addSchedulers()
                 .subscribe { it ->
-                    learningSpells = it
+                    learningSpells = it.filter {
+                        it.has == true
+                    }
                     viewState.submitList(learningSpells)
                 }
     }
