@@ -13,7 +13,7 @@
         android:textColor="@color/black"
         android:textSize="17sp"
         android:textStyle="bold"
-        tools:text="Залупа"/>
+        tools:text="Текст"/>
 
     <TextView
         android:id="@+id/tvSpellDescription"
@@ -21,13 +21,5 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvSpellName"
         android:layout_marginStart="8dp"
-        tools:text="Залупа поменьше"/>
-
-    <TextView
-        android:id="@+id/tvLevel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="8dp"
-        android:layout_toEndOf="@id/tvSpellDescription"/>
+        tools:text="Текст поменьше"/>
 </RelativeLayout>

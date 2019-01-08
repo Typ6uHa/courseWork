@@ -27,7 +27,7 @@
         android:layout_below="@id/tvCourseName"
         android:layout_marginBottom="8dp"
         android:layout_toEndOf="@id/ivCourseIcon"
-        tools:text="Хуесос"/>
+        tools:text="текст"/>
 
     <TextView
         android:id="@+id/tvDescription"

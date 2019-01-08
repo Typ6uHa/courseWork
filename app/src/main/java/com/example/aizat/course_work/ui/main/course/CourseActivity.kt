@@ -1,16 +1,16 @@
 package com.example.aizat.course_work.ui.main.course
 
 import android.app.AlertDialog
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.example.aizat.course_work.R
-import com.example.aizat.course_work.data.model.Course
 import com.example.aizat.course_work.ui.base.BaseActivity
+import com.example.aizat.course_work.ui.main.Course
 import com.example.aizat.course_work.ui.main.CourseAdapter
+import com.example.aizat.course_work.ui.main.CourseItem
 import com.example.aizat.course_work.ui.main.profile.ProfileActivity
 import com.example.aizat.course_work.ui.main.skills.TodoActivity
 import com.example.aizat.course_work.ui.main.spell.SpellActivity
@@ -68,7 +68,7 @@ class CourseActivity : BaseActivity(), CourseView {
     override fun showAcceptPopUp(course: Course) {
         val builder = AlertDialog.Builder(this)
         var spells = ""
-        course.spells.forEach {
+        (course as CourseItem).spells.forEach {
             spells = spells.plus(it.name + "\n")
         }
         builder.setMessage("Вы хотите записаться на курс: ${course.name}? \n" +
@@ -84,6 +84,6 @@ class CourseActivity : BaseActivity(), CourseView {
 
     override fun showTodoScreen(course: Course) {
         finish()
-        startActivity(intentFor<TodoActivity>("name" to course.name, "todos" to course.todos))
+        startActivity(intentFor<TodoActivity>("name" to (course as CourseItem), "todos" to course.todos))
     }
 }

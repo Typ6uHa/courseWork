@@ -24,11 +24,9 @@ class SpellAdapter : ListAdapter<Spell, SpellAdapter.ViewHolder>(DIFF_CALLBACK) 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name: TextView = itemView.findViewById(R.id.tvSpellName)
         val description: TextView = itemView.findViewById(R.id.tvSpellDescription)
-        val level: TextView = itemView.findViewById(R.id.tvLevel)
         fun bind(spell: Spell) {
             name.text = spell.name
             description.text = spell.description
-            level.text = "Уровень навыка: ${spell.level}"
         }
     }
 
